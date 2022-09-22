@@ -14,6 +14,7 @@ import { setCurrentUser } from "../../actions/currentUser";
 const Navbar = () => {
    
     var User=useSelector((state) => (state.currentUserReducer))
+    var OtpUser = useSelector((state) => (state.Auth))
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -55,7 +56,17 @@ const Navbar = () => {
             { User === null ?
             <Link to='/Auth' className="nav-item nav-links">Log in</Link>:
             <>
-              <Avatar backgroundColor='#009dff' px="10px" py="13px" borderRadius="50%" color="white" ><Link to= { `/Users/${User?.result?._id}`} style={{color:"white",textDecoration:'none'}}>{User.result.name.charAt(0).toUpperCase()}</Link></Avatar>
+                {
+                    User.result?.name ? (
+                        <Avatar backgroundColor='#009dff' px="10px" py="13px" borderRadius="50%" color="white" ><Link to= { `/Users/${User?.result?._id}`} style={{color:"white",textDecoration:'none'}}>{
+                            User.result.name.charAt(0).toUpperCase() }</Link></Avatar>
+                    ) :
+                    (
+                        <Avatar backgroundColor='#009dff' px="10px" py="13px" borderRadius="50%" color="white" ><Link to= { `/Users/${User?.result?._id}`} style={{color:"white",textDecoration:'none'}}>{
+                            User.result.phoneNumber.charAt(0) }</Link></Avatar>
+                    )
+                } 
+              {/* User.result.name.charAt(0).toUpperCase() */}
               <button className="nav-item nav-links" onClick = {handleLogout}>Log out</button>
             </>
         

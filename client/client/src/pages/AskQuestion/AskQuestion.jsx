@@ -15,7 +15,6 @@ const AskQuestion = () => {
     const dispatch = useDispatch();
     const User = useSelector((state) => (state.currentUserReducer))
     const navigate = useNavigate();
-    console.log(User);
 
     const handleLetter = (e) =>{
         if(e.key === 'Enter'){
@@ -24,7 +23,10 @@ const AskQuestion = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        // console.log({questionTitle, questionBody , questionTags})
+        if(User === null){
+            alert('Please Signup or Login to ask a question ')
+            navigate('/Auth')
+        }
 
         dispatch(askQuestion({questionTitle , questionBody , questionTags , userPosted:User.result.name, userId : User?.result?._id} , navigate))
         

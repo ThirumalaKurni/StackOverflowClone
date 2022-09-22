@@ -8,6 +8,7 @@ import DisplayQuestions from "./pages/Questions/DisplayQuestions";
 import Tags from './pages/Tags/Tags'
 import Users from './pages/Users/Users'
 import UserProfile from "./pages/UserProfile/UserProfile";
+import OtpLoginPage from "./pages/Auth/OtpLoginPage";
 
 
 const AllRoutes = () => {
@@ -21,6 +22,7 @@ const AllRoutes = () => {
             <Route path = '/tags' element = {<Tags />} />
             <Route path = '/users' element = {<Users />} />
             <Route path = '/Users/:id' element = {<UserProfile />} />
+            <Route path = '/otpLogin' element = { <OtpLoginPage />} />
         </Routes>
     )
 }

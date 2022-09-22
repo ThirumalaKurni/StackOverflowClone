@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-const API = axios.create({baseURL : 'http://localhost:5000'})
+const API = axios.create({baseURL : 'https://stack-overflow-thirumala.herokuapp.com'})
 
 API.interceptors.request.use((req) => {
     if(localStorage.getItem('Profile')){
@@ -12,6 +12,7 @@ API.interceptors.request.use((req) => {
 
 export const logIn = (authData) => API.post('/user/login',authData)
 export const signUp = (authData) => API.post('/user/signup',authData)
+export const OtpLogin = (phoneNumber) => API.post('/user/OtpLogin',{phoneNumber})
 
 export const postQuestion = (questionData) => API.post('/questions/Ask',questionData)
 export const getAllQuestions = () => API.get('/questions/get')

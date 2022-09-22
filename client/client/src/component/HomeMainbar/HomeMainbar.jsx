@@ -1,4 +1,5 @@
 import React from 'react'
+// import { useState , useEffect } from 'react'
 import { useLocation , useNavigate } from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import './HomeMainbar.css'
@@ -13,6 +14,19 @@ const HomeMainbar = () => {
 
   const questionsList = useSelector(state => state.questionReducer)
 
+
+  // const [details,setDetails] = useState(null);
+  // const getUserGeoLocation = () => {
+  //   fetch("https://geolocation-db.com/json/50ad4a90-fd5e-11ec-b463-1717be8c9ff1")
+  //   .then(response => response.json())
+  //   .then(data => setDetails(data))
+  // }
+
+
+  // useEffect(() => { 
+  //     getUserGeoLocation();
+    
+  // } ,[])
 
   // var questionsList = [{ 
   //       _id: 1,
@@ -103,6 +117,19 @@ const HomeMainbar = () => {
           </>
         }
       </div>
+
+      {/* <div className = "div-location">
+        
+      {
+      details && (
+        `${details.city} , ${details.country_name}`
+
+      )
+      }
+      
+
+      </div> */}
+      
        
     </div>
   )

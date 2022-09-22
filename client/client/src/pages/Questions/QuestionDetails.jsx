@@ -20,13 +20,13 @@ const QuestionDetails = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const location = useLocation();
-    const url = 'http://localhost:3000'
+    const url = 'https://stack-overflow-website.netlify.app/'
 
     const [Answer , setAnswer] = useState('')
     const handlePostAns = ( e , answerLength) =>{
         e.preventDefault()
         if(User === null){
-            alert("Login or Signup to asnwer a question")
+            alert("Login or Signup to answer a question")
             navigate('/Auth')
         }
         else{

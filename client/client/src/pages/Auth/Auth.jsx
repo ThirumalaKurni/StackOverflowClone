@@ -6,6 +6,8 @@ import AboutAuth from "./AboutAuth";
 import {signup , login } from '../../actions/auth'
 import { useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom'
+import { Link } from "react-router-dom";
+
 
 
 
@@ -67,12 +69,13 @@ const Auth = () => {
                         <input type="password" name="password" id="password" onChange = {(e) => {setPassword(e.target.value)}}/>
                         { isSignup && <p>
                             Password must contain at least <br />eight characters, including <br /> atleast 1 letter and 1 number 
-                            </p>}
+                            </p>
+                        }
 
                     </label>
                     { isSignup && (
                         <label htmlFor="check">
-                            <input type="checkbox" id="check"/>
+                            <input type="checkbox" id="check" style = {{ width : 20}} />
                             <p style={{ fontSize:"13px"}}> Opt-in to recieve occasional <br /> product updates,user research invitations,<br /> company announcements, and digests. </p>
 
 
@@ -83,6 +86,17 @@ const Auth = () => {
                         <span  style={{color: "#007ac6"}}>cookie policy </span>
                         <span style={{color: "#007ac6"}}>terms of <br /> service</span>,and 
                         <span style={{color: "#007ac6"}}> privacy policy </span></p>}
+                        {
+                            !isSignup && (
+                                <div>
+                                <p style = {{ alignContent: "center" , paddingLeft : "110px"}}> ----or---- </p>
+                                <Link to = '/otpLogin'>
+                                <button type="button" className="auth-btn-1">Login with OTP</button>
+                                </Link>
+                                
+                                </div>
+                            )
+                        }
                 </form>
                 <p> { isSignup ? 'Already have an account ?' : "Don`t have an account ? "}
                 <button type='button' className='handle-switch-btn' onClick = {handleSwitch}>{ isSignup ? "Log in" : "Sign up " }</button>

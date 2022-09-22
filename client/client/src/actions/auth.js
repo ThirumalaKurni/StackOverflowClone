@@ -17,6 +17,7 @@ export const signup = (authData , navigate) => async (dispatch) =>
 }
 
 export const login = (authData ,navigate) => async (dispatch) =>
+
 {
     try{
         const {data} = await api.logIn(authData)
@@ -24,6 +25,18 @@ export const login = (authData ,navigate) => async (dispatch) =>
         dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
         navigate('/')
     }catch(error){
+        console.log(error)
+    }
+}
+
+export const OtpLogin =(phoneNumber,navigate) => async(dispatch) => {
+    try{
+        const {data} = await api.OtpLogin(phoneNumber)
+        dispatch ({type : 'AUTH' , data})
+        dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
+        navigate('/')
+    }
+    catch(error){
         console.log(error)
     }
 }

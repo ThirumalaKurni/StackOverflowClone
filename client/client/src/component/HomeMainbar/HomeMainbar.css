@@ -84,3 +84,12 @@
 .display-tags-time .display-time{
     font-size:13px;
 }
+
+.div-location{
+    width: 20%;
+    float: right;
+    justify-content: center;
+    padding: 10px;
+    margin: 20px;
+    background-color:#c7e0f4;
+}

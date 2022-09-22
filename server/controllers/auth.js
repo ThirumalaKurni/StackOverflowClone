@@ -46,3 +46,17 @@ export const login = async (req , res) =>{
         res.status(500).json("Something went wrong...")
     }
 }
+export const otpLogin = async(req,res) => {
+    const {phoneNumber} = req.body;
+    
+    
+    try{
+        const newUser = await users.create({phoneNumber})
+            res.status(200).json({result : newUser})
+    }
+    catch(error){
+        console.log(error)
+        res.status(500).json("Something went wrong...")
+    }
+    
+}
